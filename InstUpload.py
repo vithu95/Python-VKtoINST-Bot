@@ -4,7 +4,8 @@ from time import sleep
 import time
 import random
 
-def inst_login(login, password):
+
+def inst_login(login, password, driver):
     try:
         driver.get('https://postingram.ru/user/login/')
         sleep(5)
@@ -17,16 +18,16 @@ def inst_login(login, password):
         return 0
 
 
-def inst_upload(theme, img_links):
+def inst_upload(theme, img_links, driver):
     themes = {
         1: "#jojo #jjba #jojosbizzareadventure #jojokes #jojomemes #joseph #josephmemes #jotaro #jojobizzareadventure #JoJo #JJBAmeme #jjbamemes #JJBAcringe",
-        2: "#procreatedrawing #procreateart #digitalillustration #inktober #digitalart #digitalpainting #art #artwork #drawing #draw #sketch #sketchbook #sketching #digitalsketchbook #sketchbooks #artistsoninstagram #artsy #arts #procreate #procreateapp #ipadpro #ipadproart #arttutorial #painting #paint #drawthisinyourstyle #dtiys #sketches #procreatetutorial #wipart",
+        2: "#procreatedrawing #procreateart #digitalillustration #inktober #digitalart #digitalpainting #art #artwork #drawing #draw #sketch #sketchbook #sketching #digitalsketchbook #sketchbooks #artsy #arts #procreate #procreateapp #ipadpro #ipadproart #arttutorial #painting #paint #drawthisinyourstyle #dtiys #sketches #procreatetutorial #wipart",
         3: ""
     }
 
     groups = {
         1: "https://postingram.ru/account/42309/",
-        2: ""
+        2: "https://postingram.ru/account/42346/"
     }
     # actions = webdriver.ActionChains(driver)
     # actions.move_to_element(driver.find_element_by_xpath("//div[@id=\"photo\"]")).click().send_keys(
@@ -67,7 +68,9 @@ def inst_upload(theme, img_links):
 
 
 def init(posting_queue, theme):
-    inst_login("tezart@mail.ru", "bagira2001")
+    driver = webdriver.Chrome()
+    driver.set_window_size(1000, 2000)
+    inst_login("tezart@mail.ru", "bagira2001", driver)
 
     print(str(theme) + " -- theme")
     while True:
@@ -77,7 +80,7 @@ def init(posting_queue, theme):
             print(time.ctime(time.time()))
             while True:
                 try:
-                    inst_upload(theme, posting_queue[0])
+                    inst_upload(theme, posting_queue[0], driver)
                     break
                 except:
                     continue
@@ -88,5 +91,3 @@ def init(posting_queue, theme):
             sleep(10)
 
 
-driver = webdriver.Chrome()
-driver.set_window_size(1000, 2000)
