@@ -16,7 +16,7 @@ def worker(jojo, ind):
     PostCreator_queue.InstaBot(jojo, posting_queue[ind])
 
 
-def posting(theme, ind, sleep_time):
+def posting(theme, ind):
     print(theme)
     global checked_queue
     sleep_time = spinvar.get()
@@ -86,7 +86,9 @@ c2.grid(column=2, row=2)
 
 spinvar = IntVar()
 spinvar.set(1200)
-spin = Spinbox(window, text="промежуток между постами", from_=0, to=7200, width=5, variable=spinvar)
+lbl_sleep = Label(window, text="промежуток между постами")
+lbl_sleep.grid(column=0, row=3, columnspan=3)
+spin = Spinbox(window, from_=0, to=7200, width=5, textvariable=spinvar)
 spin.grid(column=0, row=4, columnspan=3)
 jojo_groups = ("https://vk.com/standmemesunset https://vk.com/donut_heaven https://vk.com/iwatchjojo https://vk.com/public192447952 https://vk.com/club189404923 https://vk.com/club191279552 https://vk.com/stroheim_club https://vk.com/dioizm https://vk.com/jojofandom https://vk.com/bruhno_survived https://vk.com/polnobruh https://vk.com/public191711585 https://vk.com/jojobrazzers https://vk.com/lyajojo https://vk.com/somejojoshit https://vk.com/ordenpizdeca https://vk.com/po4kajotaro https://vk.com/fugomemes https://vk.com/memingqueen https://vk.com/madeinmorioh https://vk.com/jojosfunnyadventure https://vk.com/diobasement https://vk.com/za0warudo").strip().split(" ")
 art_groups = ("https://vk.com/panda.cafe https://vk.com/acidillustrate https://vk.com/deti_lilith https://vk.com/red_lion_art https://vk.com/publicmoodart https://vk.com/just_art1 https://vk.com/art_of_depressive https://vk.com/art_of_depressive https://vk.com/pixel.arts https://vk.com/love_art_house").strip().split(" ")
