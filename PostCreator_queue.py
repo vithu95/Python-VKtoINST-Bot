@@ -126,7 +126,6 @@ class InstaBot:
                     self.driver.refresh()
                     print("Ошибка в download_new_post")
                     continue
-            print(posting_queue)
             self.driver.get(groups[page_num])
             sleep(3)
             old_posts_date[page_num] = self.posts_date_get()

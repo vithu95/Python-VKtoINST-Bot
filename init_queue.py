@@ -83,7 +83,7 @@ c1.grid(column=0, row=1)
 c2 = Checkbutton(window, text='art', variable=var2, onvalue=2, offvalue=0)
 c2.grid(column=2, row=1)
 jojo_groups = ("https://vk.com/standmemesunset https://vk.com/donut_heaven https://vk.com/iwatchjojo https://vk.com/public192447952 https://vk.com/club189404923 https://vk.com/club191279552 https://vk.com/stroheim_club https://vk.com/dioizm https://vk.com/jojofandom https://vk.com/bruhno_survived https://vk.com/polnobruh https://vk.com/public191711585 https://vk.com/jojobrazzers https://vk.com/lyajojo https://vk.com/somejojoshit https://vk.com/ordenpizdeca https://vk.com/po4kajotaro https://vk.com/fugomemes https://vk.com/memingqueen https://vk.com/madeinmorioh https://vk.com/jojosfunnyadventure https://vk.com/diobasement https://vk.com/za0warudo").strip().split(" ")
-art_groups = ("https://vk.com/panda.cafe https://vk.com/acidillustrate").strip().split(" ")
+art_groups = ("https://vk.com/panda.cafe https://vk.com/acidillustrate https://vk.com/deti_lilith https://vk.com/red_lion_art https://vk.com/publicmoodart https://vk.com/just_art1 https://vk.com/art_of_depressive https://vk.com/art_of_depressive https://vk.com/pixel.arts https://vk.com/love_art_house").strip().split(" ")
 groups = {
     1: jojo_groups,
     2: art_groups
@@ -100,4 +100,4 @@ window.mainloop()
 print("\nAll Threads are queued, let's see when they finish!")
 
 #https://vk.com/standmemesunset https://vk.com/donut_heaven https://vk.com/iwatchjojo https://vk.com/public192447952 https://vk.com/club189404923 https://vk.com/club191279552 https://vk.com/stroheim_club https://vk.com/dioizm https://vk.com/jojofandom https://vk.com/bruhno_survived https://vk.com/polnobruh https://vk.com/public191711585 https://vk.com/jojobrazzers https://vk.com/lyajojo https://vk.com/somejojoshit https://vk.com/ordenpizdeca https://vk.com/po4kajotaro https://vk.com/fugomemes https://vk.com/memingqueen https://vk.com/madeinmorioh https://vk.com/jojosfunnyadventure https://vk.com/diobasement https://vk.com/za0warudo
-#https://vk.com/panda.cafe  https://vk.com/acidillustrate
+#https://vk.com/panda.cafe  https://vk.com/acidillustrate https://vk.com/deti_lilith https://vk.com/red_lion_art https://vk.com/publicmoodart https://vk.com/just_art1 https://vk.com/art_of_depressive https://vk.com/art_of_depressive https://vk.com/pixel.arts https://vk.com/love_art_house
