@@ -34,10 +34,11 @@ def accept(checked_queue, posting_queue):
 
 
 def decline(posting_queue):
+    global index
     try:
         del posting_queue[0]
         print("not cringe")
-
+        index = 0
     except:
         print("Ошибка")
 

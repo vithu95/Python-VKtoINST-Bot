@@ -16,10 +16,11 @@ def worker(jojo, ind):
     PostCreator_queue.InstaBot(jojo, posting_queue[ind])
 
 
-def posting(theme, ind):
+def posting(theme, ind, sleep_time):
     print(theme)
     global checked_queue
-    InstUpload.init(checked_queue[ind], theme)
+    sleep_time = spinvar.get()
+    InstUpload.init(checked_queue[ind], theme, sleep_time)
 
 
 def post_checking():
@@ -55,7 +56,7 @@ def submit(groups):
             t.start()
 
 
-            t = threading.Thread(target=posting, args=(i+1, i,))  # jojo - 1  art - 2
+            t = threading.Thread(target=posting, args=(i+1, i))  # jojo - 1  art - 2
             t.start()
         sleep(5)
     window.destroy()
@@ -79,9 +80,14 @@ r1.grid(column=0, row=0)
 r2 = Radiobutton(text='С проверкой', width=10, height=5, indicatoron=0, variable=var, value=1)
 r2.grid(column=2, row=0)
 c1 = Checkbutton(window, text='jojo', variable=var1, onvalue=1, offvalue=0)
-c1.grid(column=0, row=1)
+c1.grid(column=0, row=2)
 c2 = Checkbutton(window, text='art', variable=var2, onvalue=2, offvalue=0)
-c2.grid(column=2, row=1)
+c2.grid(column=2, row=2)
+
+spinvar = IntVar()
+spinvar.set(1200)
+spin = Spinbox(window, text="промежуток между постами", from_=0, to=7200, width=5, variable=spinvar)
+spin.grid(column=0, row=4, columnspan=3)
 jojo_groups = ("https://vk.com/standmemesunset https://vk.com/donut_heaven https://vk.com/iwatchjojo https://vk.com/public192447952 https://vk.com/club189404923 https://vk.com/club191279552 https://vk.com/stroheim_club https://vk.com/dioizm https://vk.com/jojofandom https://vk.com/bruhno_survived https://vk.com/polnobruh https://vk.com/public191711585 https://vk.com/jojobrazzers https://vk.com/lyajojo https://vk.com/somejojoshit https://vk.com/ordenpizdeca https://vk.com/po4kajotaro https://vk.com/fugomemes https://vk.com/memingqueen https://vk.com/madeinmorioh https://vk.com/jojosfunnyadventure https://vk.com/diobasement https://vk.com/za0warudo").strip().split(" ")
 art_groups = ("https://vk.com/panda.cafe https://vk.com/acidillustrate https://vk.com/deti_lilith https://vk.com/red_lion_art https://vk.com/publicmoodart https://vk.com/just_art1 https://vk.com/art_of_depressive https://vk.com/art_of_depressive https://vk.com/pixel.arts https://vk.com/love_art_house").strip().split(" ")
 groups = {
@@ -90,7 +96,7 @@ groups = {
 }
 
 submitBut = Button(text='Принять', width=20, height=10, command=partial(submit, groups))
-submitBut.grid(column=0, row=2, columnspan=3)
+submitBut.grid(column=0, row=6, columnspan=3)
 
 window.mainloop()
 

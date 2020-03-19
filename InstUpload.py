@@ -67,7 +67,7 @@ def inst_upload(theme, img_links, driver):
             "//a[@class=\"col-xs-12 border-simple-l js-app-submit-and-publish\"]").click()
 
 
-def init(posting_queue, theme):
+def init(posting_queue, theme, sleep_time):
     driver = webdriver.Chrome()
     driver.set_window_size(1000, 2000)
     inst_login("tezart@mail.ru", "bagira2001", driver)
@@ -86,7 +86,7 @@ def init(posting_queue, theme):
                     continue
             print("posted!")
             del posting_queue[0]
-            sleep(900)
+            sleep(sleep_time)
         else:
             sleep(10)
 
