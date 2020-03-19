@@ -22,9 +22,11 @@ def previous():
 
 def accept(checked_queue, posting_queue):
     global index
+    print(posting_queue)
+    print(checked_queue)
     try:
         checked_queue.append(posting_queue[0])
-        posting_queue.popleft()
+        del posting_queue[0]
         print(checked_queue)
         index = 0
     except:
@@ -33,7 +35,7 @@ def accept(checked_queue, posting_queue):
 
 def decline(posting_queue):
     try:
-        posting_queue.popleft()
+        del posting_queue[0]
         print("not cringe")
 
     except:

@@ -85,7 +85,7 @@ def init(posting_queue, theme):
                 except:
                     continue
             print("posted!")
-            posting_queue.popleft()
+            del posting_queue[0]
             sleep(900)
         else:
             sleep(10)
