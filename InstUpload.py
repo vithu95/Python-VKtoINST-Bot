@@ -70,7 +70,7 @@ def inst_upload(theme, img_links, driver):
 def init(posting_queue, theme, sleep_time):
     driver = webdriver.Chrome()
     driver.set_window_size(1000, 2000)
-    inst_login("tezart@mail.ru", "bagira2001", driver)
+    inst_login("login", "password", driver)
 
     print(str(theme) + " -- theme")
     while True:
