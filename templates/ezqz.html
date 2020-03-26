@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>EZQZ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+<style>
+    tr{
+color: solid black;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+  <p style="margin-left:45%;">Таблица студентов</p>
+  <div id="EzQz">
+  <table  width="90%"  height="600px" border="" cellspacing="1">
+    <tr>
+      <td>
+        Вопросы:
+      </td>
+      <td>
+        <div class="row ezqz">
+            <button type="button" onclick="window.location.href='{{ url_for('New_question') }}';">Создать новый вопрос</button>
+        <form method="post" action="/Victorina"
+          <button type="submit">
+        </form
+
+
+        </div>
+      </td>
+    </tr>
+
+    {% for all in all %}
+    <tr>
+        <td>{{ all[0] }} _ {{ all[4] }}
+          <form method="post" action="/answQuestion_page">
+            <button name="answ" type="submit" value="{{all[0]}}">Ответить на вопрос</button>
+          </form>
+          <form method="post" action="/redQuestion_page">
+            <button name="red" type="submit"  value="{{all[0]}}">Редактировать</button>
+          </form>
+          <form method="post" action="/delQuestion_page">
+            <button name="del" type="submit"  value="{{all[0]}}">Удалить вопрос</button>
+          </form>
+        </td>
+    </tr>
+    {% endfor %}
+
+
+  </table>
+</div>
+</body>

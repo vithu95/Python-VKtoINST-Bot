@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>question_page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+<style>
+    tr{
+color: solid black;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+  <p style="margin-left:41%;">Окно создания вопроса</p>
+  <div id="EzQz">
+  <table  width="90%"  height="650px" border="" cellspacing="1">
+    <tr>
+      <td>
+        <form method="post" action="/New_question_create">
+        <p><input style="margin-left:2%;" type="text" placeholder="Название вопроса" name="main_name" ></p>
+          <div class="row ezqz">
+          <p><input class="but123" type="text" placeholder="*Ваш вопрос" name="main"></p>
+          <div class="radioButton">
+            <div>
+              <p><b>*Выберете тип вопроса</b></p>
+              <p><input type="radio" name="button" value="1">Ввод ответа</p>
+              <p><input type="radio" name="button" value="2">Выбор ответа из вариантов</p>
+            </div>
+          </div>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div style="display:flex; justify-content:center;">
+          <div>
+          <h3>Варианты ответа:</h3>
+          <p><input type="text" name="1answer" placeholder="Ответ 1" size="40px"><input type="radio" name="true1" value="+"><input type="radio" name="true1" value="-" checked></p>
+          <p><input type="text" name="2answer" placeholder="Ответ 2" size="40px"><input type="radio" name="true2" value="+"><input type="radio" name="true2" value="-" checked></p>
+          <p><input type="text" name="3answer" placeholder="Ответ 3" size="40px"><input type="radio" name="true3" value="+"><input type="radio" name="true3" value="-" checked></p>
+          <p><input type="text" name="4answer" placeholder="Ответ 4" size="40px"><input type="radio" name="true4" value="+"><input type="radio" name="true4" value="-" checked></p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <div style="display:flex; justify-content:center;">
+        <button type="sumbit" name="button">Готово</button>
+      </div>
+    </td>
+    </tr>
+    </form>
+
+
+  </table>
+</div>
+</body>

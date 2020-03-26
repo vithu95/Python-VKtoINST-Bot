@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>question_page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+<style>
+    tr{
+color: solid black;
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>{{Result}}</h2>
+<br>
+<form method="post" action="/ezqz_page">
+  <button type="submit">На главную</button>
+</form>
+<form method="post" action="/next">
+  <button type="submit">Следующий вопрос</button>
+</form>
+</body>

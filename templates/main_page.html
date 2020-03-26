@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main_page.css') }}">
+    <script src="https://kit.fontawesome.com/4072e18d0c.js" crossorigin="anonymous"></script>
+    
+    
+</head>
+<body>
+<div class="container">
+    <div class="nav-bar">
+        <button class="hamburger-menu"><i class="fas fa-bars"></i></button>
+        <div class="main-logo"><i class="fab fa-slack"></i></div>
+    </div>
+    
+    <div class="main-container">
+        <div class="side-bar">
+            <button class="side-bar__main side-bar-buttons"><i class="fas fa-home"></i>Главная</button>
+
+            <button class="side-bar__bot-options side-bar-buttons"><i class="fas fa-robot"></i>Настройки бота</button>
+            
+            <button onclick="document.location='login'" class="side-bar__change-acc side-bar-buttons"><i class="fas fa-exchange-alt"></i>Сменить аккаунт</button>
+            
+            <button onclick="document.location='https://github.com/DeducMe/Python-VKtoINST-Bot'" class="side-bar__github side-bar-buttons"><i class="fab fa-github"></i>github</button>
+
+            <p class="side-bar__group-label">Группы:</p>
+
+            <ul class="all-groups">
+
+            </ul>
+
+            <div class="side-bar__add-group">
+                <button class="side-bar__add-group-button">+</button>
+            </div>
+        </div>
+
+        <section class="main">
+            <textarea placeholder="Здесь будет вывод из программы..." class="main__console" disabled="disabled"></textarea>
+            
+            <form class="main__console__input-form">
+                <input class="main__console__input" type="text" placeholder="команды в консоль сюда...">
+                
+                <button class="main__console__submit" type="submit"><i class="fas fa-terminal"></i></button>
+            </form>
+            <div class="main__image-accept">
+                <div class="main__canvas">
+                    <img class="main__image-in-canvas" src="{{image_to_show}}">
+                </div>
+
+                <div class="main__image-controls-div">
+                    <form class="button-form main__accept" action="/accept_image" method="post">
+                        <button class="main__image-controls"><i class="fa-image-controls fas fa-check"></i></button>
+                    </form>
+
+                    <form class="button-form main__previous-end" action="/previous-end_image" method="post">
+                        <button class="main__image-controls main__previous-end-js" ><i class="fa-image-controls fas fa-angle-double-left"></i></button>
+                    </form>
+                    
+                    <form class="button-form main__previous" action="/previous_image" method="post">
+                        <button class="main__image-controls main__previous-js"><i class="fa-image-controls fas fa-angle-left"></i></button>
+                    </form>
+                    
+                    <form class="button-form main__next" action="/next_image" method="post">
+                        <button class="main__image-controls main__next-js"><i class="fa-image-controls fas fa-angle-right"></i></button>
+                    </form>
+                    
+                    <form class="button-form  main__next-end" action="/next-end_image" method="post">
+                        <button class="main__image-controls main__next-end-js"><i class="fa-image-controls fas fa-angle-double-right"></i></button>
+                    </form>
+                    
+                    <form class="button-form  main__decline" action="/decline_image" method="post">
+                        <button class="main__image-controls"><i class="fa-image-controls fas fa-times"></i></button>
+                    </form>
+                        
+                </div>
+
+                <div class="main__info">
+                    <p class="posts-await">Постов ожидают потверждения: {{links_await}}</p>
+                    <p class="posts-queue">Постов в очереди: {{links_queue}}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!--<div class="row main">-->
+
+<!--<form method="post" action="/studReg">-->
+<!--    <b>Регистрация нового студента:</b>-->
+<!--    <p><input type="number" name="number" placeholder="Номер"></p>-->
+<!--    <p><input type="text" name="name" placeholder="ФИО"></p>-->
+<!--    <p><input type="number" name="age" placeholder="Возраст"></p>-->
+<!--    <p><input type="text" name="group" placeholder="Группа"></p>-->
+<!--    <button type="submit">Зарегистрировать</button>-->
+<!--</form>-->
+<!--  <div>-->
+<!--    <form method="post" action="/studDelete">-->
+<!--        <b>Удаление студента:</b>-->
+<!--        <p><input type="text" name="DelNumber" size="30" placeholder="Номер студента по журналу"></p>-->
+<!--        <button type="submit">Удалить</button>-->
+<!--    </form>-->
+<!--    <br>-->
+<!--    <form method="post" action="/AnotherGroup">-->
+<!--      <b>Перевод студента:</b>-->
+<!--      <p><input type="text" name="AnotherGroupNumber" size="30" placeholder="Номер студента по журналу"></p>-->
+<!--      <p><input type="text" name="GroupName" size="30" placeholder="Номер группы для перевода"></p>-->
+<!--      <button type="submit">Перевести</button>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--  <a href="ezqz_page">Очень тяжелый тест</a>-->
+<!--  <div>-->
+<!--    <form method="post" action="/OrderByAge">-->
+<!--        <button type="submit">Отобразить всех совершеннолетних</button>-->
+<!--    </form>-->
+<!--    <br>-->
+<!--    <form method="post" action="/Back">-->
+<!--      <button type="submit">Отобразить всех</button>-->
+<!--    </form>-->
+
+<!--  </div>-->
+<!--</div>-->
+<!--<p style="margin-left:45%;">Таблица студентов</p>-->
+<!--<div id="base">-->
+<!--    <table width="90%"  height="400px" border="" cellspacing="1">-->
+<!--        <tr>-->
+<!--            <td>Номер</td>-->
+<!--            <td>ФИО</td>-->
+<!--            <td>Возраст</td>-->
+<!--            <td>Группа</td>-->
+<!--            <td>Номер по журналу</td>-->
+<!--        </tr>-->
+<!--        {% if Ae==1 %}-->
+<!--            {% for high_age in high_age %}-->
+<!--                <tr>-->
+<!--                      <td>{{high_age[0]}}</td>-->
+<!--                      <td>{{high_age[1]}}</td>-->
+<!--                      <td>{{high_age[2]}}</td>-->
+<!--                      <td>{{high_age[3]}}</td>-->
+<!--                      <td>{{high_age[4]}}</td>-->
+<!--                </tr>-->
+
+<!--            {% endfor %}-->
+<!--        {% else %}-->
+<!--            {% for all in all %}-->
+<!--            <tr>-->
+<!--                  <td>{{ all[0] }}</td>-->
+<!--                  <td>{{ all[1] }}</td>-->
+<!--                  <td>{{ all[2] }}</td>-->
+<!--                  <td>{{ all[3] }}</td>-->
+<!--                  <td>{{ all[4] }}</td>-->
+<!--            </tr>-->
+<!--            {% endfor %}-->
+<!--        {% endif %}-->
+
+<!--    </table>-->
+
+
+<!--</div>-->
+
+
+</body>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="{{ url_for('static', filename='main_page_script.js') }}"></script>
+</html>

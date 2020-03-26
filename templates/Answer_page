@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>question_page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+
+<style>
+    tr{
+color: solid black;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+  <p style="margin-left:41%;">Окно ответа на вопрос</p>
+  <div id="EzQz">
+  <table  width="90%"  height="650px" border="" cellspacing="1">
+    <form method="post" action="/Question_answer">
+    <tr>
+      <td>
+                <input name="num" type="hidden" value="{{all[num][0]}}">
+                <h4>Вопрос № {{all[num][0]}}</h4>
+                <b> {{all[num][4]}}</b>
+                <p>{{all[num][1]}}</p>
+                {% if pam == 1 %}
+                <p><input name="answerQ" type="text" placeholder="Введите ответ"></p>
+                {% endif %}
+                {% if pam == 2 %}
+                <p><input type="radio" name="answerQ" value="{{answer1}}1">{{answer1}}</p>
+                <p><input type="radio" name="answerQ" value="{{answer2}}2">{{answer2}}</p>
+                <p><input type="radio" name="answerQ" value="{{answer3}}3">{{answer3}}</p>
+                <p><input type="radio" name="answerQ" value="{{answer4}}4">{{answer4}}</p>
+                {% endif %}
+                {% if pam == 3 %}
+                <p><input name="answerQ" type="text" placeholder="Введите ответ"></p>
+                {% endif %}
+      </td>
+    </tr>
+
+    <tr>
+    <td>
+      <div style="display:flex; justify-content:center;">
+
+        <form action="" method="post">
+          <button type="sumbit" name="button">Готово</button>
+        </form>
+      </div>
+    </td>
+    </tr>
+    </form>
+
+
+  </table>
+</div>
+</body>

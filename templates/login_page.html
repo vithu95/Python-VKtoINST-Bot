@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LoginPage</title>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login_page.css') }}">
+
+</head>
+
+<body>
+    <form class="login-form" method="POST" action="/login_user">
+        <h1 class="login-header">Login</h1>
+        
+        <input class="login-input" type="text" name="login" placeholder="Login">
+        
+        <input class="password-input" type="password" name="password" placeholder="Password">
+        
+        <button class="log-button" type="submit">Login</button>
+        
+        <p class="reg-label">Don`t have an account yet? 
+            <a class="reg-link" onclick="register_change()">Register</a>
+        </p>
+
+        {% if bad_login==True %}
+            <p class="bad-login">Логин или пароль неверные</p>
+        {% endif %}
+    </form>
+
+    
+</body>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</html>
