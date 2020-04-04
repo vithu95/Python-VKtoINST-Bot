@@ -155,7 +155,7 @@ def next_image():
 
     image_to_show = get_image()
     image_to_show = image_to_show[0].strip().split(' ')
-    if web_image_ind != len(image_to_show):
+    if web_image_ind != len(image_to_show)-1:
         web_image_ind += 1
     return redirect(url_for('main_page'))
 

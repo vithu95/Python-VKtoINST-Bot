@@ -67,7 +67,7 @@ class InstaBot:
 
         ua = dict(DesiredCapabilities.CHROME)
         options = webdriver.ChromeOptions()
-        # options.add_argument('headless')
+        options.add_argument('headless')
         options.add_argument('window-size=1600x1000')
         self.driver = webdriver.Chrome(chrome_options=options)
         groups_amount = len(groups)
