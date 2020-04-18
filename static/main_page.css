@@ -14,9 +14,16 @@
 }
 
 .main-logo{
-    padding-left: 50vw;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    margin-left: 50vw;
 }
 
+.bot-options{
+    display: none;
+}
 .hamburger-menu {
 	display: none;
 }
@@ -32,11 +39,11 @@ and (max-device-width : 1024px) {
         font-size: 50px;
     }
     
-    .main-logo{
-        padding-right: 50vw;
-        padding-left: 0;
+    .main-logo {
+        margin-left: 0;
+	    margin-right: 50vw;
+        font-size: 50px;
     }
-    
 }
 
 .main-container {
@@ -114,43 +121,7 @@ and (max-device-width : 1024px) {
 	margin-left: 5%;
 }
 
-@media only screen   
-and (max-device-width : 1024px) { 
-    
-    .side-bar {
-        position: absolute;
-	    width: 70%;
-        transition: .5s;
-        left: -70%;
-        z-index: 2;
-    }
-    
-    .main {
-        padding: 0 20px;
-        width: 100%;
-    }
-    
-    .main-inactive{
-        opacity: 0.3;
-        
-    }
-    
-    .side-bar-active{
-        left: 0;
-        transition: .5s;
-    }
-    
-    .side-bar-buttons {
-        height: auto;
-        font-size: 50px; 
-    }
-    
-    .side-bar__add-group-button {
-        width: 7vh;
-        height: 7vh;
-        font-size: 80px;
-    }
-}
+
 
 .main__console {
     margin-top: 20px;
@@ -254,3 +225,114 @@ and (max-device-width : 1024px) {
     transition: .2s;
 }
 
+.bot-options{
+    width: 70%;
+    display: none;
+}
+
+.bot-options__form {
+	display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.bot-options__sleep-time{
+    width: 10%;   
+}
+
+.bot-options__group-links {
+	width: 50%;
+}
+
+.bot-options__submit{
+    width: 30%;
+    
+}
+
+.bot-options__submit:hover, .bot-options__submit:focus{
+    border: 2px #000 solid;
+    color: #000;
+    background-color: #ffff00;
+    transition: .2s;
+    
+}
+
+.new-group{
+    width: 70%;
+    display: none;
+    padding-left: 5%;
+}
+
+.new-group__data {
+    display: flex;
+    
+}
+
+
+.new-group__instagram-data {
+	width: 40%;
+}
+
+.new-group__facebook-data{
+    width: 40%;
+    
+}
+
+.new-group__submit{
+    margin-left: 50%;
+    width: 20%;
+}
+
+.new-group__submit:hover, .new-group__submit:focus{
+    border: 2px #000 solid;
+    color: #000;
+    background-color: #ffff00;
+    transition: .2s;
+}
+
+
+@media only screen   
+and (max-device-width : 1024px) { 
+    
+    .side-bar {
+        position: absolute;
+	    width: 70%;
+        transition: .5s;
+        left: -70%;
+        z-index: 2;
+    }
+    
+    .new-group{
+        width: 100%;
+    }
+    
+    .bot-options{
+        width: 100%;
+    }
+    
+    .main {
+        padding: 0 20px;
+        width: 100%;
+    }
+    
+    .main-inactive{
+        opacity: 0.3;
+        
+    }
+    
+    .side-bar-active{
+        left: 0;
+        transition: .5s;
+    }
+    
+    .side-bar-buttons {
+        height: auto;
+        font-size: 50px; 
+    }
+    
+    .side-bar__add-group-button {
+        width: 7vh;
+        height: 7vh;
+        font-size: 80px;
+    }
+}

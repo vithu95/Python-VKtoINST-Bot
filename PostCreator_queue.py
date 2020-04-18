@@ -1,6 +1,7 @@
 ﻿from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.firefox.options import Options
 import traceback
 
 
@@ -69,16 +70,19 @@ class InstaBot:
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
         options.add_argument('window-size=1600x1000')
+        #options = Options()
+        #options.headless = True
         self.driver = webdriver.Chrome(chrome_options=options)
         groups_amount = len(groups)
 
         sleep(2)
         group_names = []
         old_posts_date = []
-
+        
         for group in range(groups_amount):
-            self.driver.execute_script("window.open('"+groups[group]+"','_blank');")
+            self.driver.execute_script("window.open('','_blank');")
             self.driver.switch_to.window(self.driver.window_handles[group+1])
+            self.driver.get(groups[group])
             old_posts_date.append([])
             old_posts_date[group] = self.posts_date_get()
             group_names.append(groups[group].replace("https://vk.com/", ""))

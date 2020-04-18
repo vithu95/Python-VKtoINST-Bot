@@ -13,6 +13,9 @@ html, button{
 }
 
 button{
+    background-color: #000;
+    border: none;
+    outline: none;
     cursor: pointer;
 }
 

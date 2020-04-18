@@ -21,7 +21,6 @@
 
 .login-input,.password-input,.log-button{
     border: 0;
-    cursor: pointer;
     background: none;
     display: block;
     margin: 20px auto;
@@ -37,6 +36,7 @@
 }
 
 .log-button {
+    cursor: pointer;
 	transition: .1s;
     max-width: 200px;
 }

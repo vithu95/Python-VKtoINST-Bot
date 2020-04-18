@@ -11,10 +11,16 @@
     
 </head>
 <body>
+
 <div class="container">
     <div class="nav-bar">
-        <button class="hamburger-menu"><i class="fas fa-bars"></i></button>
-        <div class="main-logo"><i class="fab fa-slack"></i></div>
+        <button class="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <button class="main-logo" onclick="document.location='main_page'">
+            <i class="fab fa-slack"></i>
+        </button>
     </div>
     
     <div class="main-container">
@@ -46,6 +52,7 @@
                 
                 <button class="main__console__submit" type="submit"><i class="fas fa-terminal"></i></button>
             </form>
+
             <div class="main__image-accept">
                 <div class="main__canvas">
                     <img class="main__image-in-canvas" src="{{image_to_show}}">
@@ -83,6 +90,38 @@
                     <p class="posts-queue">Постов в очереди: {{links_queue}}</p>
                 </div>
             </div>
+        </section>
+
+        <section class="bot-options">
+            <form class="bot-options__form">
+                <input type="text" class="bot-options__sleep-time" name="sleep-time" placeholder="время между постами">
+
+                <textarea class="bot-options__group-links" name="group-links" placeholder="Ссылки на группы"></textarea>
+
+                <button class="bot-options__submit" type="submit">Сохранить</button>
+            </form>
+        </section>
+        
+        <section class="new-group">
+            <form>
+                <h1 class="new-group__header">Новая группа:</h1>
+                
+                <div class="new-group__data">
+                    <div class="new-group__instagram-data">
+                        <input type="text" class="new-group__instagram-login" name="instagram-login" placeholder="Логин Instagram">
+
+                        <input type="password" class="new-group__instagram-password" name="instagram-password" placeholder="Пароль Instagram">
+                    </div>
+
+                    <div class="new-group__facebook-data">
+                        <input type="text" class="new-group__facebook-login" name="facebook-login" placeholder="Логин Facebook">
+
+                        <input type="password" class="new-group__facebook-password" name="facebook-password" placeholder="Пароль Facebook">
+                    </div>
+                </div>
+            
+                <button class="new-group__submit" type="submit">Сохранить</button>
+            </form>
         </section>
     </div>
 </div>

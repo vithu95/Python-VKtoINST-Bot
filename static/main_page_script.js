@@ -12,3 +12,22 @@ $('.hamburger-menu').click(function () {
     $('.side-bar').toggleClass('side-bar-active');
     $('.main').toggleClass('main-inactive');
 });
+
+
+$('.side-bar__bot-options').click(function () {
+    $('.bot-options').css('display','block');
+    $('.main').css('display','none');
+    $('.new-group').css('display','none')
+});
+
+$('.side-bar__main').click(function () {
+    $('.main').css('display','block');
+    $('.bot-options').css('display','none');
+    $('.new-group').css('display','none')
+});
+
+$('.side-bar__add-group-button').click(function () {
+    $('.new-group').css('display','block');
+    $('.main').css('display','none');
+    $('.bot-options').css('display','none');
+});

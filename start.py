@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import sqlite3
 import os
-import init
 import threading
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -30,13 +29,6 @@ def get_image():
             image_ind += 1
     return post
 
-
-def cringe():
-    init.init(1500)
-
-
-t = threading.Thread(target=cringe, args=())  # jojo - 1  art - 2
-t.start()
 
 #                                       LOGIN HERE
 # ********************************************************************************************************
@@ -167,3 +159,5 @@ def previous_image():
         web_image_ind -= 1
 
     return redirect(url_for('main_page'))
+
+
