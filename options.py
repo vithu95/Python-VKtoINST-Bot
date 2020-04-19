@@ -5,24 +5,29 @@ class Options:
     def __init__(self):
         self.themes_primary = {
             1: "#jojo #jjba #jojosbizzareadventure #jojokes #jojomemes",
-            2: "#procreatedrawing #procreateart #digitalillustration ",
+            2: "#твиттер #selfcare #твит #тамблер #интересное",
             3: ""
         }
 
         self.themes_secondary = {
             1: "#joseph #josephmemes #jotaro #jojobizzareadventure #JoJo #JJBAmeme #jjbamemes #JJBAcringe #giorno #джоджо #memes #kakyoin #dio #meme #goldenwind #ventoaureo #giornogiovanna",
-            2: "#inktober #digitalart #digitalpainting #art #artwork #drawing #draw #sketch #sketchbook #sketching #digitalsketchbook #sketchbooks #artistsoninstagram #artsy #arts #procreate #procreateapp #ipadpro #ipadproart #arttutorial #painting #paint #drawthisinyourstyle #dtiys #sketches #procreatetutorial #wipart",
+            2: "#твиттер_мемы #марвел #эстетика #книги #советы #тикток #cute #уходзалицом #милота #рекомендации #selfcarerussia #фикбук #сериалы #селфкейр #чтопосмотреть #twitter #twit #актуальные #тамблемемы #фандом #отп #мемы #сидимдома #сиэтл #саллифейс #threads #тред #мода",
             3: ""
         }
 
         self.invitation = {
             1: "\n\n Подписочку! \n\n| \n\n",
-            2: "|\n|\n Подписывайся на @acid.illustrate \n|\n|\n"
+            2: "Подписывайся! \nСтавь лайк!\nЭто очень помогает паблику\n.\n.\nтеги:"
         }
 
         self.groups = {
             1: "https://business.facebook.com/creatorstudio?tab=instagram_content_posts&mode=instagram&collection_id=all_pages&content_table=INSTAGRAM_POSTS",
-            2: "https://postingram.ru/account/42346/"
+            2: "https://business.facebook.com/creatorstudio?tab=instagram_content_posts&mode=instagram&collection_id=all_pages&content_table=INSTAGRAM_POSTS"
+        }
+
+        self.group_names = {
+            1: "overdrive_retro",
+            2: "my_favourite_twitter"
         }
 
     def description_create(self, theme):
