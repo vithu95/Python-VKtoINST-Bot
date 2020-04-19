@@ -11,7 +11,7 @@ from selenium.webdriver.common.by import By
 from PIL import Image
 
 
-def expand_to_square(file_path: str, fill_color=0) -> None:
+def expand_to_square(file_path: str, fill_color=(255, 255, 255)) -> None:
     """
     увеличивает изображение по адресу 'file_path' до размеров квадрата.
     Пустое пространство заполняется цветом 'fill_color'.
@@ -95,6 +95,9 @@ def inst_upload(theme, img_links, driver):
     # sleep(2)
     # driver.find_element_by_xpath("//a[@class=\"button button-cta primary-btn rounded raised\"]").click()
     driver.get(options_class.groups[theme])
+    wait = WebDriverWait(driver, 60)
+    wait.until(EC.presence_of_element_located((By.XPATH, "//a[@type=\"button\"]")))
+ 
     driver.find_element_by_xpath("//a[@type=\"button\"]").click()
     sleep(3)
     driver.find_element_by_xpath("//li[@role=\"menuitem\"]/div").click()
@@ -127,7 +130,7 @@ def init(theme, sleep_time):
     # options.add_argument('window-size=1600x1000')
     driver = webdriver.Chrome()
 
-    inst_login("", "", driver)
+    inst_login("+79207921760", "bagira2001", driver)
     conn = sqlite3.connect('table.db', check_same_thread=False)
     cur = conn.cursor()
     conn.commit()
@@ -157,7 +160,7 @@ def init(theme, sleep_time):
             cur.execute('''DELETE FROM images_queue WHERE ROWID = ?''', (img_ind,))
             conn.commit()
             print("posted!")
-            sleep(sleep_time-300)
+            sleep(sleep_time - 45)
 
         img_ind += 1
 

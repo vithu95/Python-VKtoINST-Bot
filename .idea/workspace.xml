@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f619d452-3c7a-4871-b642-1f0531ed787a" name="Default Changelist" comment="A lot of changes,">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/123.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f619d452-3c7a-4871-b642-1f0531ed787a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InstUpload.py" beforeDir="false" afterPath="$PROJECT_DIR$/InstUpload.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostCreator_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/PostCreator_queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/init.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/login_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/login_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/main_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main_page_script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/main_page_script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main_page.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InstUpload.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
+            <state relative-caret-position="812">
+              <caret line="119" column="74" lean-forward="true" selection-start-line="119" selection-start-column="74" selection-end-line="119" selection-end-column="74" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -151,30 +140,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Python-VKtoINST-Bot — копия" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Python-VKtoINST-Bot — копия" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Python-VKtoINST-Bot — копия" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Python-VKtoINST-Bot — копия" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Python-VKtoINST-Bot — копия" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Python-VKtoINST-Bot — копия" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -235,19 +201,25 @@
       <option name="project" value="LOCAL" />
       <updated>1586006403217</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="A lot of changes, find them all">
+      <created>1587213762712</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587213762713</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24966975" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21782178" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.042432815" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -322,7 +294,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed uploading from Postingram to Facebook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed uploading from Postingram to Facebook" />
+    <MESSAGE value="A lot of changes, find them all" />
+    <option name="LAST_COMMIT_MESSAGE" value="A lot of changes, find them all" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/options.py">
@@ -388,8 +361,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/InstUpload.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
+        <state relative-caret-position="812">
+          <caret line="119" column="74" lean-forward="true" selection-start-line="119" selection-start-column="74" selection-end-line="119" selection-end-column="74" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>

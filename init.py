@@ -55,7 +55,7 @@ def init():
         1: jojo_groups,
         2: art_groups
     }
-    submit(jojo_groups, 1500)
+    submit(jojo_groups, 1800)
 init()
 print("\nAll Threads are queued, let's see when they finish!")
 
