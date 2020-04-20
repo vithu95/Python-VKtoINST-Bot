@@ -4,6 +4,7 @@ from time import sleep
 import time
 import sqlite3
 import requests
+from threading import Timer
 from options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -43,45 +44,20 @@ def inst_upload(theme, img_links, driver):
     options_class = Options()
     hashtags = options_class.description_create(theme)
     
-    print(theme)
+    theme = int(theme)
     sleep(2)
 
     if len(img_links) != 0:
         for kek in range(len(img_links)):
             while True:
                 try:
-                    # try:
-                    #     driver.get("https://www.kapwing.com/tools/resize-video")
-                    #     sleep(2)
-                    #
-                    #     driver.find_element_by_xpath("//div[contains(text(), 'Sign In')]").click()
-                    #     sleep(2)
-                    #     driver.find_element_by_class_name("sign-in-dialog-facebook-button").click()
-                    #     sleep(4)
-                    # except:
-                    #     print(traceback.format_exc())
-                    # driver.get("https://www.kapwing.com/tools/resize-video")
                     resp = requests.get((img_links[kek]), stream=True).content
-                    out = open("images/img"+str(kek)+".jpg", "wb")
+                    out = open("images/"+options_class.group_names[theme] + str(kek)+".jpg", "wb")
                     out.write(resp)
                     out.close()
                     # wait = WebDriverWait(driver, 60)
                     # wait.until(EC.presence_of_element_located((By.XPATH, "//input[@type=\"file\"]")))
-                    # driver.find_element_by_xpath("//input[@type=\"file\"]").send_keys(
-                    expand_to_square("C:/Users/123/Desktop/Flask/ekzflask/Python-VKtoINST-Bot — копия/images/img"+str(kek)+".jpg")
-                    # sleep(20)
-                    # driver.find_element_by_class_name("create-button").click()
-                    #
-                    # wait.until(EC.presence_of_element_located((By.XPATH, "//img[@alt=\"Final\"]")))
-                    # sleep(3)
-                    # img_links[kek] = driver.find_element_by_xpath("//img[@alt=\"Final\"]").get_attribute("src")
-                    #
-                    # resp = requests.get((img_links[kek]), stream=True).content
-                    # sleep(2)
-                    # out = open("images/img" + str(kek) + ".jpg", "wb")
-                    # out.write(resp)
-                    # sleep(2)
-                    # out.close()
+                    expand_to_square("C:/Users/123/Desktop/Flask/ekzflask/Python-VKtoINST-Bot — копия/images/"+options_class.group_names[theme] + str(kek)+".jpg")
                     break
                 except:
                     print(traceback.format_exc())
@@ -102,8 +78,8 @@ def inst_upload(theme, img_links, driver):
     sleep(3)
     driver.find_element_by_xpath("//li[@role=\"menuitem\"]/div").click()
     sleep(5)
-    amount_of_divs = len(driver.find_elements_by_xpath("//div[contains(text(), 'overdrive_retro')]"))
-    driver.find_elements_by_xpath("//div[contains(text(), 'overdrive_retro')]")[amount_of_divs-1].click()
+    amount_of_divs = len(driver.find_elements_by_xpath("//div[contains(text(), '"+options_class.group_names[theme]+"')]"))
+    driver.find_elements_by_xpath("//div[contains(text(), '"+options_class.group_names[theme]+"')]")[amount_of_divs-1].click()
     sleep(3)
 
     driver.find_element_by_class_name("notranslate").send_keys(hashtags)
@@ -115,7 +91,7 @@ def inst_upload(theme, img_links, driver):
             driver.find_elements_by_xpath("//div[@aria-haspopup=\"true\"]")[1].click()
             sleep(3)
             driver.find_element_by_xpath("//input[@type=\"file\"]").send_keys(
-                "C:/Users/123/Desktop/Flask/ekzflask/Python-VKtoINST-Bot — копия/images/img"+str(k)+".jpg")
+                "C:/Users/123/Desktop/Flask/ekzflask/Python-VKtoINST-Bot — копия/images/"+options_class.group_names[theme] + str(k)+".jpg")
             sleep(3)
 
         sleep(3)
@@ -123,45 +99,75 @@ def inst_upload(theme, img_links, driver):
         driver.find_element_by_xpath("//*[@id=\"creator_studio_sliding_tray_root\"]/div/div/div[3]/div[2]/button").click()
 
 
-def init(theme, sleep_time):
+def posting(driver, theme, img_ind):
+    conn = sqlite3.connect('table.db', check_same_thread=False)
+    cur = conn.cursor()
+    conn.commit()
+    cur.execute('''SELECT * FROM images_queue WHERE ROWID = ?''', (img_ind, ))
+    post = cur.fetchone()
+    if post is not None:
+        links = post[0].strip().split(" ")
+
+        print(str(len(links)) + " -- links amount")
+        print(time.ctime(time.time()))
+        while True:
+            try:
+                inst_upload(theme, links, driver)
+                break
+            except:
+                print(traceback.format_exc())
+        cur.execute('''DELETE FROM images_queue WHERE ROWID = ?''', (img_ind,))
+        conn.commit()
+        print("posted!")
+        return True
+
+
+pause_themes = []
+
+
+def timer(theme):
+    global main_ind
+    main_ind = stopped_ind[theme-1]
+
+    pause_themes.remove(theme)
+
+def init(sleep_time):
     # ua = dict(DesiredCapabilities.CHROME)
     # options = webdriver.ChromeOptions()
     # #options.add_argument('headless')
     # options.add_argument('window-size=1600x1000')
     driver = webdriver.Chrome()
-
-    inst_login("+79207921760", "bagira2001", driver)
     conn = sqlite3.connect('table.db', check_same_thread=False)
     cur = conn.cursor()
     conn.commit()
-    print(str(theme) + " -- theme")
-    img_ind = 0
-    post = None
-    while post is None:
-        cur.execute('''SELECT * FROM images_queue WHERE ROWID = ?''', (img_ind,))
-        post = cur.fetchone()
-        if post is None:
-            img_ind += 1
+    inst_login("", "", driver)
+    options_class = Options()
+    themes_amount = len(options_class.groups)
+    global main_ind
+    global stopped_ind
+    main_ind = 0
+    stopped_ind = [0]*themes_amount
 
-    print(img_ind)
     while True:
-        cur.execute('''SELECT * FROM images_queue WHERE ROWID = ?''', (img_ind, ))
+        cur.execute('''SELECT * FROM images_queue WHERE ROWID = ?''', (main_ind,))
         post = cur.fetchone()
-        if post is not None:
-            links = post[0].strip().split(" ")
-            print(str(len(links)) + " -- links amount")
-            print(time.ctime(time.time()))
-            while True:
-                try:
-                    inst_upload(theme, links, driver)
-                    break
-                except:
-                    print(traceback.format_exc())
-            cur.execute('''DELETE FROM images_queue WHERE ROWID = ?''', (img_ind,))
-            conn.commit()
-            print("posted!")
-            sleep(sleep_time - 45)
+        if post is not None and int(post[1]) not in pause_themes:
+            theme = int(post[1])
+            print(str(theme)+"     -     theme")
 
-        img_ind += 1
+            if posting(driver, theme, main_ind) == True:
+                pause_themes.append(theme)
+                t = Timer(sleep_time, timer, args=[theme])
+                t.start()
+
+            if post[1] in pause_themes:
+                stopped_ind[post[1]-1] = main_ind
+
+        main_ind += 1
+        sleep(0.5)
+
+
+
+
 
 
